@@ -206,6 +206,7 @@ OpenCV系列：
 7. 目标检测之训练opencv自带的分类器（opencv_haartraining 或 opencv_traincascade）
 8. 车牌识别 之 字符分割
 9. 仿射变换，透视变换：二维坐标到二维坐标之间的线性变换，可用于landmark人脸矫正。
+10. opencv实现抠图（单一背景），替换背景图
 
 python系列（web开发、多线程等）：
 1. flask的web开发，用于机器学习（主要还是DL）模型的简单演示。
@@ -223,3 +224,4 @@ python系列（web开发、多线程等）：
 9. 一些零碎的语言，却触动到内心深处。
 10. 用一个脚本学习 python
 11. 一个有趣的周报
+
