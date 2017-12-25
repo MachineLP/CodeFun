@@ -86,7 +86,7 @@ def _configure_optimizer(learning_rate):
   elif FLAGS.optimizer == 'sgd':
     optimizer = tf.train.GradientDescentOptimizer(learning_rate)
   else:
-    raise ValueError('Optimizer [%s] was not recognized', FLAGS.optimizer)''
+    raise ValueError('Optimizer [%s] was not recognized', FLAGS.optimizer)
 
 
-  return optimizer
+  return optimizer'''
