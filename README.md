@@ -7,7 +7,8 @@
 
 变量设置参考config.py。
 详细说明参见config.py。
-运行代码：python main.py
+( mkdir pretrain/inception_v4, 下载与训练模型, cp到pretrain/inception_v4/ ) 
+运行代码： python main.py 
 
 其中，z_ckpt_pb：ckpt转pb的代码，和测试接口。
 
