@@ -1,16 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-##########################################################
-# breif:    cnn-rnn-attention model of hongyanquan
-#
-# usage:    python hyq_predict.py 9.jpg (带标签输出逻辑)
-#           python hyq_predict.py --mode alg 9.jpg(纯算法输出逻辑)
-#           python hyq_predict.py -n 9.jpg -n "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3669177687,479791909&fm=27&gp=0.jpg" 1(多张图片演示)
-#           python hyq_predict.py -n "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3669177687,479791909&fm=27&gp=0.jpg" 1(网络图片演示)
-# copyright:            (c) 2017-2018 svaxm
-# tensorflow version:   v1.0
-# version:              v1.0    liuchenxi     2017.09.05    创建cnn-rnn-attention算法接口第一版本
-##########################################################
 
 
 import numpy as np
