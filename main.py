@@ -2,7 +2,10 @@
 """
 Created on 2017 10.17
 @author: liupeng
+wechat: lp9628
+blog: http://blog.csdn.net/u014365862/article/details/78422372
 """
+
 import numpy as np
 import tensorflow as tf
 slim = tf.contrib.slim
