@@ -1,38 +1,11 @@
-# Copyright 2016 The TensorFlow Authors. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ==============================================================================
-"""Contains building blocks for various versions of Residual Networks.
-
-Residual networks (ResNets) were proposed in:
-  Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-  Deep Residual Learning for Image Recognition. arXiv:1512.03385, 2015
-
-More variants were introduced in:
-  Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-  Identity Mappings in Deep Residual Networks. arXiv: 1603.05027, 2016
-
-We can obtain different ResNet variants by changing the network depth, width,
-and form of residual unit. This module implements the infrastructure for
-building them. Concrete ResNet units and full ResNet networks are implemented in
-the accompanying resnet_v1.py and resnet_v2.py modules.
-
-Compared to https://github.com/KaimingHe/deep-residual-networks, in the current
-implementation we subsample the output activations in the last residual unit of
-each block, instead of subsampling the input activations in the first residual
-unit of each block. The two implementations give identical results but our
-implementation is more memory efficient.
+# -*- coding: utf-8 -*-
 """
+Created on 2017 10.17
+@author: liupeng
+wechat: lp9628
+blog: http://blog.csdn.net/u014365862/article/details/78422372
+"""
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
