@@ -1,5 +1,10 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Created on 2017 10.17
+@author: liupeng
+wechat: lp9628
+blog: http://blog.csdn.net/u014365862/article/details/78422372
+"""
 
 
 import tensorflow as tf
