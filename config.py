@@ -45,6 +45,7 @@ checkpoint_path="pretrain/inception_v4/inception_v4.ckpt"
 # 需要加入模型 需修改 (train_net/train.py)
 # 设置GPU使用, train_net/train.py, main.py
 # 设置权重衰减：learningRate_1 = tf.train.exponential_decay(lr1_init, tf.subtract(global_step, 1), decay_steps, decay_rate, True)
+# 加入tensorboard 可视化
 # 需要修改参数更新的方法请参考：(train_net/train.py)
 '''
 def _configure_optimizer(learning_rate):
