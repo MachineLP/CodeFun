@@ -49,7 +49,7 @@ def random_rotation(image, random_rotation=True):
         angle = np.random.randint(0,180)
         RotateMatrix = cv2.getRotationMatrix2D(center=(image.shape[1]/2, image.shape[0]/2), angle=angle, scale=0.7)
         # image = cv2.warpAffine(image, RotateMatrix, (w,h), borderValue=(129,137,130))
-        image = cv2.warpAffine(image, RotateMatrix, (w,h))
+        image = cv2.warpAffine(image, RotateMatrix, (w,h), borderMode=cv2.BORDER_REPLICATE)
     return image
 
 def random_crop(image, crop_size=299, random_crop=True):
