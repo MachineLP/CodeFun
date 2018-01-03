@@ -13,7 +13,7 @@ IMAGE_HEIGHT = 299
 IMAGE_WIDTH = 299
 num_classes = 4
 # epoch
-epoch = 100
+epoch = 10
 batch_size = 1
 # 模型的学习率
 learning_rate = 0.00001
@@ -39,6 +39,8 @@ checkpoint_exclude_scopes = "Logits_out"
 # checkpoint_path="pretrain/inception_v4/inception_v4.ckpt"; 
 # checkpoint_path="pretrain/resnet_v2_50/resnet_v2_50.ckpt"
 checkpoint_path="pretrain/inception_v4/inception_v4.ckpt"
+
+#训练好的模型参数在model文件夹下。
 
 # 接下来可以添加的功能：
 # 图像归一化：默认的是归一化到[-1,1]：(load_image/load_image.py：get_next_batch_from_path) （可以自行加一些设置参数，在此处设置）
