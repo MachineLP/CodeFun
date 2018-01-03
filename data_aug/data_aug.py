@@ -46,7 +46,7 @@ def random_rotation(image, random_rotation=True):
     if random_rotation and np.random.choice([True, False]):
         w,h = image.shape[1], image.shape[0]
         # 0-180随机产生旋转角度。
-        angle = np.random.randint(0,180)
+        angle = np.random.randint(0,10)
         RotateMatrix = cv2.getRotationMatrix2D(center=(image.shape[1]/2, image.shape[0]/2), angle=angle, scale=0.7)
         # image = cv2.warpAffine(image, RotateMatrix, (w,h), borderValue=(129,137,130))
         image = cv2.warpAffine(image, RotateMatrix, (w,h), borderMode=cv2.BORDER_REPLICATE)
