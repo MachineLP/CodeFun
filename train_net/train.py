@@ -175,7 +175,7 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
                 #if acc > 0.90:
                 #    saver2.save(sess, model_path, global_step=batch_i, write_meta_graph=False)
         print('Epoch================>: {:>2}'.format(epoch_i))
-        images_valid, labels_valid = get_next_batch_from_path(valid_data, valid_label, 0, IMAGE_HEIGHT, IMAGE_WIDTH, batch_size=len(valid_data), is_train=False)
+        images_valid, labels_valid = get_next_batch_from_path(valid_data, valid_label, 0, IMAGE_HEIGHT, IMAGE_WIDTH, batch_size=valid_n, is_train=False)
         epoch_ls, epoch_acc = sess.run([loss, accuracy], feed_dict={X: images_valid, Y: labels_valid, keep_prob:1.0, is_train:False})
         print('Epoch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(epoch_i, epoch_ls, epoch_acc))
         if epoch_acc > 0.90:
