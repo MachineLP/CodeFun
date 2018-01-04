@@ -63,12 +63,12 @@ def get_next_batch_from_path(image_path, image_labels, pointer, IMAGE_HEIGHT=299
     batch_y = np.zeros([batch_size, num_classes]) 
     for i in range(batch_size):  
         image = cv2.imread(image_path[i+pointer*batch_size])
-        image = cv2.resize(image, (IMAGE_HEIGHT, IMAGE_WIDTH))  
         if is_train:
             image = random_flip(image)
             image = random_rotation(image)
             image = random_crop(image)
             image = random_exposure(image)
+        image = cv2.resize(image, (IMAGE_HEIGHT, IMAGE_WIDTH))  
         # 选择自己预处理方式：
         '''
         m = image.mean()
