@@ -109,7 +109,7 @@ def g_parameter(checkpoint_exclude_scopes):
     return variables_to_restore,variables_to_train
 
 
-def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HEIGHT,IMAGE_WIDTH,num_classes,epoch,batch_size=64,keep_prob=0.8,
+def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HEIGHT,IMAGE_WIDTH,learning_rate,num_classes,epoch,batch_size=64,keep_prob=0.8,
            arch_model="arch_inception_v4",checkpoint_exclude_scopes="Logits_out", checkpoint_path="pretrain/inception_v4/inception_v4.ckpt"):
 
     X = tf.placeholder(tf.float32, [None, IMAGE_HEIGHT, IMAGE_WIDTH, 3])
@@ -136,7 +136,7 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
     var_list = variables_to_train
     update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
     with tf.control_dependencies(update_ops):
-        optimizer = tf.train.AdamOptimizer(learning_rate=0.00001).minimize(loss, var_list=var_list)
+        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss, var_list=var_list)
     predict = tf.reshape(net, [-1, num_classes])
     max_idx_p = tf.argmax(predict, 1)
     max_idx_l = tf.argmax(Y, 1)
@@ -224,5 +224,5 @@ if __name__ == '__main__':
     ##----------------------------------------------------------------------------##
 
     print ("-----------------------------train.py start--------------------------")
-    train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HEIGHT,IMAGE_WIDTH,num_classes,epoch,batch_size,keep_prob,
+    train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HEIGHT,IMAGE_WIDTH,learning_rate,num_classes,epoch,batch_size,keep_prob,
           arch_model,checkpoint_exclude_scopes, checkpoint_path)
