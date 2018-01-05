@@ -94,8 +94,9 @@ def g_parameter(checkpoint_exclude_scopes):
     variables_to_restore = []
     # 需要训练的参数
     variables_to_train = []
-    #for var in slim.get_model_variables():
-    for var in tf.trainable_variables():
+    for var in slim.get_model_variables():
+    # 切记不要用下边这个，这是个天大的bug，调试了3天。
+    # for var in tf.trainable_variables():
         excluded = False
         for exclusion in exclusions:
             if var.op.name.startswith(exclusion):
