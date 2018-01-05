@@ -26,10 +26,11 @@ def load_img_path(imgDir,imgFoldName, img_label):
     label = []
     for i in range (imgNum):
         img_path = imgDir+imgFoldName+"/"+imgs[i]
-        img = cv2.imread(img_path)
-        if img is not None:
-            data.append(img_path)
-            label.append(int(img_label))
+        # 用来检测图片是否有效，放在这里会太费时间。
+        # img = cv2.imread(img_path)
+        # if img is not None:
+        data.append(img_path)
+        label.append(int(img_label))
     return data,label
 
 
