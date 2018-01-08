@@ -184,7 +184,7 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
             valid_ls = valid_ls + epoch_ls
             valid_acc = valid_acc + epoch_acc
         print('Epoch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(epoch_i, valid_ls/int(valid_n/batch_size), valid_acc/int(valid_n/batch_size)))
-        if epoch_acc > 0.90:
+        if valid_acc/int(valid_n/batch_size) > 0.90:
             saver2.save(sess, model_path, global_step=epoch_i, write_meta_graph=False)
         
     sess.close()
