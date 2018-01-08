@@ -176,9 +176,14 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
                 print('Batch: {:>2}: Training loss: {:>3.5f}, Training accuracy: {:>3.5f}'.format(batch_i, loss_, acc_))
                 
         print('Epoch================>: {:>2}'.format(epoch_i))
-        images_valid, labels_valid = get_next_batch_from_path(valid_data, valid_label, 0, IMAGE_HEIGHT, IMAGE_WIDTH, batch_size=valid_n, is_train=False)
-        epoch_ls, epoch_acc = sess.run([loss, accuracy], feed_dict={X: images_valid, Y: labels_valid, k_prob:1.0, is_training:False})
-        print('Epoch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(epoch_i, epoch_ls, epoch_acc))
+        valid_ls = 0
+        valid_acc = 0
+        for batch_i in range(int(valid_n/batch_size)):
+            images_valid, labels_valid = get_next_batch_from_path(valid_data, valid_label, batch_i, IMAGE_HEIGHT, IMAGE_WIDTH, batch_size=batch_size, is_train=False)
+            epoch_ls, epoch_acc = sess.run([loss, accuracy], feed_dict={X: images_valid, Y: labels_valid, k_prob:1.0, is_training:False})
+            valid_ls = valid_ls + epoch_ls
+            valid_acc = valid_acc + epoch_acc
+        print('Epoch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(epoch_i, valid_ls/int(valid_n/batch_size), valid_acc/int(valid_n/batch_size)))
         if epoch_acc > 0.90:
             saver2.save(sess, model_path, global_step=epoch_i, write_meta_graph=False)
         
