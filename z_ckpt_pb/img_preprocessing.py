@@ -5,6 +5,10 @@ Created on 2017 10.17
 wechat: lp9628
 blog: http://blog.csdn.net/u014365862/article/details/78422372
 """
+'''
+在进行训练之前要将训练数据筛选一下；
+是不是为空；并且另存为jpg格式；
+'''
 
 import numpy as np  
 import tensorflow as tf
