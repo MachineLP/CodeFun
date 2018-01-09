@@ -9,6 +9,7 @@ blog: http://blog.csdn.net/u014365862/article/details/78422372
 # inception_v4:299 
 # resnet_v2:224
 # vgg:224
+
 IMAGE_HEIGHT = 299
 IMAGE_WIDTH = 299
 num_classes = 4
