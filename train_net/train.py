@@ -131,7 +131,7 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
     variables_to_restore,variables_to_train = g_parameter(checkpoint_exclude_scopes)
 
     # loss function
-    loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels = Y, logits = net))
+    loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels = Y, logits = net))
     # loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels = Y, logits = net))
 
     var_list = variables_to_train
