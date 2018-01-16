@@ -23,9 +23,9 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 try:
-    from load_image import load_database_path, get_next_batch_from_path
+    from load_image import load_database_path, get_next_batch_from_path, shuffle_train_data
 except:
-    from load_image.load_image import load_database_path, get_next_batch_from_path
+    from load_image.load_image import load_database_path, get_next_batch_from_path, shuffle_train_data
 # inception_v4
 try:
     from inception_v4 import inception_v4_arg_scope, inception_v4
@@ -175,7 +175,7 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
                 loss_, acc_ = sess.run([loss, accuracy], feed_dict={X: images_train, Y: labels_train, k_prob:1.0, is_training:False})
                 print('Batch: {:>2}: Training loss: {:>3.5f}, Training accuracy: {:>3.5f}'.format(batch_i, loss_, acc_))
                 
-        print('Epoch================>: {:>2}'.format(epoch_i))
+        print('Epoch===================================>: {:>2}'.format(epoch_i))
         valid_ls = 0
         valid_acc = 0
         for batch_i in range(int(valid_n/batch_size)):
@@ -186,6 +186,10 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
         print('Epoch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(epoch_i, valid_ls/int(valid_n/batch_size), valid_acc/int(valid_n/batch_size)))
         if valid_acc/int(valid_n/batch_size) > 0.90:
             saver2.save(sess, model_path, global_step=epoch_i, write_meta_graph=False)
+        
+        print('>>>>>>>>>>>>>>>>>>>shuffle train_data<<<<<<<<<<<<<<<<<')
+        # 每个epoch，重新打乱一次训练集：
+        train_data, train_label = shuffle_train_data(train_data, train_label)
         
     sess.close()
 
