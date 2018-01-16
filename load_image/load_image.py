@@ -33,6 +33,14 @@ def load_img_path(imgDir,imgFoldName, img_label):
         label.append(int(img_label))
     return data,label
 
+def shuffle_train_data(train_imgs, train_labels):
+    index = [i for i in range(len(train_imgs))]
+    np.random.shuffle(index)
+    train_imgs = np.asarray(train_imgs)
+    train_labels = np.asarray(train_labels)
+    train_imgs = train_imgs[index]
+    train_labels = train_labels[index]
+    return train_imgs, train_labels
 
 def load_database_path(imgDir):
     img_path = os.listdir(imgDir)
@@ -47,12 +55,7 @@ def load_database_path(imgDir):
         print ("文件名对应的label:")
         print (path, i)
     #打乱数据集
-    index = [i for i in range(len(train_imgs))]
-    np.random.shuffle(index)
-    train_imgs = np.asarray(train_imgs)
-    train_labels = np.asarray(train_labels)
-    train_imgs = train_imgs[index]
-    train_labels = train_labels[index]
+    train_imgs, train_labels = shuffle_train_data(train_imgs, train_labels)
     return train_imgs, train_labels
 
 
