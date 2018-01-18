@@ -25,6 +25,8 @@ def random_flip(image, random_flip=True):
     return image
 
 # 改变光照
+# 光照调节也可以用log, 参数调节和gamma相反；
+# img = exposure.adjust_log(img, 1.3)
 def random_exposure(image, random_exposure=True):
     if random_exposure and np.random.choice([True, False]):
         image = exposure.adjust_gamma(image, 1.1) # 调暗
