@@ -46,7 +46,9 @@ err_num = 0
 sample_num = 0
 for r in file:
     sample_num = sample_num + 1
+    # 转为字典
     r = eval(r)
+    # 转为列表
     image_path = list(r.keys())
     la = 888888888888888
     label = str (str(image_path[0]).split('/')[1])
