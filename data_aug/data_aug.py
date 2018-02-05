@@ -45,7 +45,7 @@ def random_flip(image, random_flip=True):
 '''
 def random_exposure(image, random_exposure=True):
     if random_exposure and np.random.choice([True, False]):
-        e_rate = np.random.rand(0.5,1.5)
+        e_rate = np.random.uniform(0.5,1.5)
         image = exposure.adjust_gamma(image, e_rate)
     return image
 
