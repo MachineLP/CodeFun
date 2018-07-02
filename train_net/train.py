@@ -66,10 +66,10 @@ def arch_resnet_v2_50(X, num_classes, dropout_keep_prob=0.8, is_train=False):
         net, end_points = resnet_v2_50(X, is_training=is_train)
     with slim.arg_scope([slim.conv2d, slim.max_pool2d, slim.avg_pool2d], stride=1, padding='SAME'):
         with tf.variable_scope('Logits_out'):
-            net = slim.conv2d(net, 1000, [1, 1], activation_fn=None, normalizer_fn=None, scope='Logits_out0')
-            net = slim.dropout(net, dropout_keep_prob, scope='Dropout_1b_out0')
-            net = slim.conv2d(net, 200, [1, 1], activation_fn=None, normalizer_fn=None, scope='Logits_out1')
-            net = slim.dropout(net, dropout_keep_prob, scope='Dropout_1b_out1')
+            # net = slim.conv2d(net, 1000, [1, 1], activation_fn=None, normalizer_fn=None, scope='Logits_out0')
+            # net = slim.dropout(net, dropout_keep_prob, scope='Dropout_1b_out0')
+            # net = slim.conv2d(net, 200, [1, 1], activation_fn=None, normalizer_fn=None, scope='Logits_out1')
+            # net = slim.dropout(net, dropout_keep_prob, scope='Dropout_1b_out1')
             net = slim.conv2d(net, num_classes, [1, 1], activation_fn=None, normalizer_fn=None, scope='Logits_out2')
             net = tf.squeeze(net,[1,2], name='SpatialSqueeze')
     return net
