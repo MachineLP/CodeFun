@@ -1,5 +1,5 @@
 
-## 自己搭建的一个框架，包含模型有：vgg(vgg16,vgg19), resnet(resnet_v2_50,resnet_v2_101,resnet_v2_152), inception_v4, inception_resnet_v2等。
+## tensorflow搭建的一个训练框架，包含模型有：vgg(vgg16,vgg19), resnet(resnet_v2_50,resnet_v2_101,resnet_v2_152), inception_v4, inception_resnet_v2等。
 ## 代码有点小乱，欢迎帮忙整理。
 ## 此框架主要针对分类任务， 后面会陆续搭建多任务多标签、检测、以及rnn等框架，欢迎关注。
 使用说明：
@@ -9,7 +9,9 @@
 
 train_cnn_v0： 实现基础功能，数据读取方式慢。
 
-train_cnn_v1: 优化数据读取的方式，学习率加入衰减。
+train_cnn_v1： 优化数据读取的方式，学习率加入衰减。
+
+train_cnn-rnn-attention_v0：在train_cnn_v0基础上加入rnn、attention。
 
 
 对dl感兴趣，还可以关注我的博客，这是我的博客目录：（地址： http://blog.csdn.net/u014365862/article/details/78422372 ）
