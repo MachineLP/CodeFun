@@ -57,6 +57,16 @@ def read_inputs(sample_dir, train_rate, batch_size, is_training=True, num_thread
         capacity=min_queue_examples+3 * batch_size)
   return train_images, train_label_batch, valid_images, valid_label_batch
 
+def random_rotate_image(image):
+    def random_rotate_image_func(img):
+        if np.random.choice([True, False]):
+            w,h = img.shape[1], img.shape[0]
+            angle = np.random.randint(0,360)
+            rotate_matrix = cv2.getRotationMatrix2D(center=(img.shape[1]/2, img.shape[0]/2), angle=angle, scale=0.7)
+            img = cv2.warpAffine(img, rotate_matrix, (w,h))
+        return img 
+    image_rotate = tf.py_func(random_rotate_image_func, [image], tf.float32)
+    return image_rotate
 
 def _train_preprocess(reshaped_image,crop_size=299,num_channels=3):
   # Image processing for training the network. Note the many random
@@ -76,6 +86,9 @@ def _train_preprocess(reshaped_image,crop_size=299,num_channels=3):
   reshaped_image = tf.image.random_contrast(reshaped_image,
                                              lower=0.2, upper=1.8)
 
+  #
+  reshaped_image = random_rotate_image(reshaped_image)
+  
   # Subtract off the mean and divide by the variance of the pixels.
   reshaped_image = tf.image.per_image_standardization(reshaped_image)
 
