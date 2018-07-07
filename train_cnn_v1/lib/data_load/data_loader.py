@@ -84,6 +84,20 @@ def _train_preprocess(reshaped_image,crop_size=299,num_channels=3):
   #read_input.label.set_shape([1])
   return reshaped_image
 
+'''
+def per_image_standardization(img):
+    # stat = ImageStat.Stat(img)
+    # mean = stat.mean
+    # stddev = stat.stddev
+    # img = (np.array(img) - stat.mean)/stat.stddev
+    if img.mode == 'RGB':
+        channel = 3
+    num_compare = img.size[0] * img.size[1] * channel
+    img_arr=np.array(img)
+    #img_arr=np.flip(img_arr,2)
+    img_t = (img_arr - np.mean(img_arr))/max(np.std(img_arr), 1/num_compare)
+    return img_t
+'''
 
 def _test_preprocess(reshaped_image, crop_size=299,num_channels=3):
 
