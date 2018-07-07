@@ -70,6 +70,8 @@ def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,ba
             if batch_i%20==0:
                 loss_, acc_ = sess.run([loss, accuracy])
                 print('Batch: {:>2}: Training loss: {:>3.5f}, Training accuracy: {:>3.5f}'.format(batch_i, loss_, acc_))
+            saver2.save(sess, checkpoint_path, global_step=epoch_i, write_meta_graph=False)
+            
             if batch_i%20==0:
                 ls, acc = sess.run([valid_loss, valid_accuracy])
                 print('Batch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(batch_i, ls, acc))
