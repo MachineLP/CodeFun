@@ -5,18 +5,11 @@
 使用说明：
 搭建时使用的环境为：Python3.5, tensorflow1.4
 
-变量设置参考config.py。
-详细说明参见config.py。
+具体的信息查看：train_cnn_v0； train_cnn_v1
 
-( mkdir pretrain/inception_v4, 下载预训练模型, cp到pretrain/inception_v4/ ) 
+train_cnn_v0： 实现基础功能，数据读取方式慢。
 
-运行代码： python main.py 
-
-其中，z_ckpt_pb：ckpt转pb的代码，和测试接口。
-
-另外如果想使用tensorboard，请使用train_net下面的train_tensorboard.py。将在工程目录下生成 xxx_log 的文件。
-然后使用：tensorboard --logdir arch_inceion_v4_log查看。
-后续有时间会把其它的功能加上，并且每个代码文件都会进行封装，用类的形式呈现。
+train_cnn_v1: 优化数据读取的方式，学习率加入衰减。
 
 
 对dl感兴趣，还可以关注我的博客，这是我的博客目录：（地址： http://blog.csdn.net/u014365862/article/details/78422372 ）
