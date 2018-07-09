@@ -7,11 +7,13 @@
 
 具体的信息查看：train_cnn_v0； train_cnn_v1
 
-train_cnn_v0： 实现基础功能，数据读取方式慢。
+train_cnn_v0： 实现基础cnn训练，数据读取方式慢。
 
 train_cnn_v1： 优化数据读取的方式，学习率加入衰减。
 
 train_cnn-rnn-attention_v0：在train_cnn_v0基础上加入rnn、attention。
+
+train_cnn_multiGPU_v0：使用多GPU训练。
 
 
 对dl感兴趣，还可以关注我的博客，这是我的博客目录：（地址： http://blog.csdn.net/u014365862/article/details/78422372 ）
