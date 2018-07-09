@@ -39,9 +39,9 @@ def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,ba
     valid_loss = cost(valid_label, valid_net)
     valid_accuracy = model_accuracy(valid_net, valid_label, num_classes)
     #------------------------------------------------------------------------------------#
-    sess = tf.Session()
-    init = tf.global_variables_initializer()
-    sess.run(init)
+    sess = tf.InteractiveSession()
+    tf.local_variables_initializer().run()
+    tf.global_variables_initializer().run()
     saver2 = tf.train.Saver(tf.global_variables())
     if not train_all_layers:
         saver_net = tf.train.Saver(variables_to_restore)
