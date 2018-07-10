@@ -17,6 +17,12 @@
 
 [train_cnn_multilabel](https://github.com/MachineLP/train_cnn_multilabel)： 多任务多标签训练及其总结。
 
+[train_cnn_GANs](https://github.com/MachineLP/train_cnn_GANs)： GANs训练及其总结。
+
+[TensorFlow基础教程](https://github.com/MachineLP/Tensorflow-)：理论及其代码实践。
+
+[python实现教程](https://github.com/MachineLP/py_workSpace)：MachineLP的日常代码。
+
 
 对dl感兴趣，还可以关注我的博客，这是我的博客目录：（地址： http://blog.csdn.net/u014365862/article/details/78422372 ）
 本文为博主原创文章，未经博主允许不得转载。有问题可以加微信：lp9628(注明CSDN)。
