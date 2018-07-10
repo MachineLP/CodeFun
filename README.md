@@ -21,7 +21,7 @@
 
 [TensorFlow基础教程](https://github.com/MachineLP/Tensorflow-)：理论及其代码实践。
 
-[python实现教程](https://github.com/MachineLP/py_workSpace)：MachineLP的日常代码。
+[python实践教程](https://github.com/MachineLP/py_workSpace)：MachineLP的日常代码。
 
 
 对dl感兴趣，还可以关注我的博客，这是我的博客目录：（地址： http://blog.csdn.net/u014365862/article/details/78422372 ）
