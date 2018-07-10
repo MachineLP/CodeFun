@@ -25,7 +25,7 @@ EARLY_STOP_PATIENCE = 1000
 learning_r_decay = True
 learning_rate_base = 0.0001 
 decay_rate = 0.95
-height, width = 224, 224
+height, width = 299, 299
 # 模型保存的路径
 train_dir = 'model'
 # 是否进行fine-tune。 选择fine-tune的的参数
