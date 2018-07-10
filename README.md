@@ -11,6 +11,8 @@
 
 [train_cnn_v1](https://github.com/MachineLP/train_arch/tree/master/train_cnn_v1)： 优化数据读取的方式，学习率加入衰减。
 
+[train_cnn-rnn](https://github.com/MachineLP/train_cnn-rnn)：在train_cnn_v0基础上加入rnn。
+
 [train_cnn-rnn-attention_v0](https://github.com/MachineLP/train_cnn-rnn-attention)：在train_cnn_v0基础上加入rnn、attention。
 
 [train_cnn_multiGPU_v0](https://github.com/MachineLP/train_arch/tree/master/train_cnn_multiGPU_v0)：使用多GPU训练。
