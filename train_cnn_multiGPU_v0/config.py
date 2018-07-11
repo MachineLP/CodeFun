@@ -5,7 +5,7 @@ sample_dir = "gender"
 # 需要分类的类别数量
 num_classes = 4
 # 最小批训练的大小
-batch_size = 32
+batch_size = 128
 # 选择使用的模型
 arch_model="arch_inception_v4"
 # arch_model="arch_multi_alexnet_v2"
