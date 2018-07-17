@@ -144,6 +144,22 @@ def cost(label, logit):
     loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(labels = label, logits = logit))
     return loss
 
+def cost_ls(one_hot_labels, logits, label_smoothing=0.1, weight=1.0, scope=None):
+    logits.get_shape().assert_is_compatible_with(one_hot_labels.get_shape())
+    with tf.name_scope(scope, 'CrossEntropyLoss', [logits, one_hot_labels]):
+        num_classes = one_hot_labels.get_shape()[-1].value
+        print ('>>>>>>>>>>>>>>', num_classes)
+        one_hot_labels = tf.cast(one_hot_labels, logits.dtype)
+        if label_smoothing > 0:
+            smooth_positives = 1.0 - label_smoothing
+            smooth_negatives = label_smoothing / num_classes
+            one_hot_labels = one_hot_labels * smooth_positives + smooth_negatives
+        cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits,labels=one_hot_labels, name='xentropy')
+        weight = tf.convert_to_tensor(weight, dtype=logits.dtype.base_dtype, name='loss_weight')
+        loss = tf.multiply(weight, tf.reduce_mean(cross_entropy), name='value')
+        # tf.add_to_collection(LOSSES_COLLECTION, loss)
+        return loss
+
 def train_op(learning_rate, loss, variables_to_train, global_step):
     update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
     with tf.control_dependencies(update_ops):
