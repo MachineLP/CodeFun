@@ -22,7 +22,7 @@ class DataAugmenters():
             w,h = self.img.shape[1], self.img.shape[0]
             angle = np.random.randint(0,360)
             rotate_matrix = cv2.getRotationMatrix2D(center=(self.img.shape[1]/2, self.img.shape[0]/2), angle=angle, scale=0.7)
-            self.img = cv2.warpAffine(self.img, rotate_matrix, (w,h))
+            self.img = cv2.warpAffine(self.img, rotate_matrix, (w,h), borderMode=cv2.BORDER_REPLICATE)
 
     def _random_exposure(self, random_exposure=True):
         if random_exposure and np.random.choice([True, False]):
