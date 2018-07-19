@@ -58,6 +58,18 @@ def load_database_path(imgDir):
     train_imgs, train_labels = shuffle_train_data(train_imgs, train_labels)
     return train_imgs, train_labels
 
+#------------------------------------------------#
+# 功能：按照图像最小的边进行缩放
+# 输入：img：图像，resize_size：需要的缩放大小
+# 输出：缩放后的图像
+#------------------------------------------------#
+def img_crop_pre(img, resize_size=336):
+    h, w, _ = img.shape
+    deta = h if h < w else w
+    alpha = resize_size / float(deta)
+    print (alpha)
+    img = cv2.resize(img, (int(h*alpha), int(w*alpha)))
+    return img
 
 def get_next_batch_from_path(image_path, image_labels, pointer, IMAGE_HEIGHT=299, IMAGE_WIDTH=299, batch_size=64, is_train=True):
     batch_x = np.zeros([batch_size, IMAGE_HEIGHT,IMAGE_WIDTH,3])
@@ -66,6 +78,7 @@ def get_next_batch_from_path(image_path, image_labels, pointer, IMAGE_HEIGHT=299
     for i in range(batch_size):  
         image = cv2.imread(image_path[i+pointer*batch_size])
         image = cv2.resize(image, (int(IMAGE_HEIGHT*1.5), int(IMAGE_WIDTH*1.5)))
+        image = img_crop_pre(image, resize_size=336)
         if is_train:
             image = random_flip(image)
             image = random_rotation(image)
