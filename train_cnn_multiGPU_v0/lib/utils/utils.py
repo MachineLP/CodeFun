@@ -45,16 +45,31 @@ def data_norm(img):
 def data_aug(img):
     return DataAugmenters(img).run()
 
+#------------------------------------------------#
+# 功能：按照图像最小的边进行缩放
+# 输入：img：图像，resize_size：需要的缩放大小
+# 输出：缩放后的图像
+#------------------------------------------------#
+def img_crop_pre(img, resize_size=336):
+    h, w, _ = img.shape
+    deta = h if h < w else w
+    alpha = resize_size / float(deta)
+    print (alpha)
+    img = cv2.resize(img, (int(h*alpha), int(w*alpha)))
+    return img
+
 def get_next_batch_from_path(image_path, image_labels, pointer, height, width, batch_size=64, training=True):
     batch_x = np.zeros([batch_size, height, width,3])
     num_classes = len(image_labels[0])
     batch_y = np.zeros([batch_size, num_classes]) 
     for i in range(batch_size):  
         image = cv2.imread(image_path[i+pointer*batch_size])
-        image = cv2.resize(image, (height, width)) 
+        image = img_crop_pre(image, resize_size=336)
+        # image = cv2.resize(image, (height, width)) 
         if training: 
             # image = data_aug([image])[0]
             image = data_aug(image)
+        image = cv2.resize(image, (height, width)) 
         image = data_norm(image)
         batch_x[i,:,:,:] = image
         batch_y[i] = image_labels[i+pointer*batch_size]
