@@ -54,7 +54,7 @@ def img_crop_pre(img, resize_size=336):
     h, w, _ = img.shape
     deta = h if h < w else w
     alpha = resize_size / float(deta)
-    print (alpha)
+    # print (alpha)
     img = cv2.resize(img, (int(h*alpha), int(w*alpha)))
     return img
 
