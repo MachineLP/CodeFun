@@ -144,6 +144,13 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,IMAGE_HE
     correct_pred = tf.equal(max_idx_p, max_idx_l)
     accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
     #------------------------------------------------------------------------------------#
+    # Top-1 accuracy
+    #top1acc = tf.reduce_mean(
+    #tf.cast(tf.nn.in_top_k(logits, labels, 1), tf.float32))
+    # Top-n accuracy
+    #topnacc = tf.reduce_mean(
+    #tf.cast(tf.nn.in_top_k(logits, labels, args.top_n), tf.float32))
+    #------------------------------------------------------------------------------------#
     sess = tf.Session()
     init = tf.global_variables_initializer()
     sess.run(init)
