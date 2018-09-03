@@ -66,14 +66,15 @@ def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,ba
     for epoch_i in range(epoch):
         for batch_i in range(int(100/batch_size)):
             los, _ = sess.run([loss,optimizer])
-            print (los)
+            # print (los)
             if batch_i%20==0:
                 loss_, acc_ = sess.run([loss, accuracy])
                 print('Batch: {:>2}: Training loss: {:>3.5f}, Training accuracy: {:>3.5f}'.format(batch_i, loss_, acc_))
-            checkpoint_path = os.path.join(train_dir, 'model.ckpt')
-            saver2.save(sess, checkpoint_path, global_step=epoch_i, write_meta_graph=False)
             
             if batch_i%20==0:
                 ls, acc = sess.run([valid_loss, valid_accuracy])
                 print('Batch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(batch_i, ls, acc))
+            if batch_i%500==0:
+                checkpoint_path = os.path.join(train_dir, 'model.ckpt')
+                saver2.save(sess, checkpoint_path, global_step=epoch_i, write_meta_graph=False)
     sess.close()
