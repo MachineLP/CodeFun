@@ -48,12 +48,12 @@ else:
     from lib.train.train import train as train
 
 
-train_data, train_label, valid_data, valid_label = read_inputs(sample_dir, train_rate, batch_size, is_training=True, num_threads=20)
+train_data, train_label, valid_data, valid_label, train_n, valid_n = read_inputs(sample_dir, train_rate, batch_size, is_training=True, num_threads=20)
 
 print (train_data, train_label, valid_data, valid_label)
 
 if not os.path.isdir(train_dir):
     os.makedirs(train_dir)
 
-train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,batch_size,arch_model,learning_r_decay,learning_rate_base,decay_rate,dropout_prob,epoch,height,width,checkpoint_exclude_scopes,early_stop,EARLY_STOP_PATIENCE,fine_tune,train_all_layers,checkpoint_path,g_parameter)
+train(train_data,train_label,valid_data,valid_label,train_n,valid_n,train_dir,num_classes,batch_size,arch_model,learning_r_decay,learning_rate_base,decay_rate,dropout_prob,epoch,height,width,checkpoint_exclude_scopes,early_stop,EARLY_STOP_PATIENCE,fine_tune,train_all_layers,checkpoint_path,g_parameter)
 
