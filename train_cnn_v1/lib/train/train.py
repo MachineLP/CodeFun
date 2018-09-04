@@ -11,7 +11,7 @@ from lib.utils.utils import get_next_batch_from_path, shuffle_train_data
 from lib.utils.utils import input_placeholder, build_net, cost, train_op, model_accuracy
 import os
 
-def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,batch_size,arch_model,learning_r_decay,learning_rate_base,decay_rate,dropout_prob,epoch,height,width,checkpoint_exclude_scopes,early_stop,EARLY_STOP_PATIENCE,fine_tune,train_all_layers,checkpoint_path,g_parameter):
+def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,train_dir,num_classes,batch_size,arch_model,learning_r_decay,learning_rate_base,decay_rate,dropout_prob,epoch,height,width,checkpoint_exclude_scopes,early_stop,EARLY_STOP_PATIENCE,fine_tune,train_all_layers,checkpoint_path,g_parameter):
     # ---------------------------------------------------------------------------------#
     # X, Y, is_train, keep_prob_fc = input_placeholder(height, width, num_classes)
     # net, _ = build_net(X, num_classes, keep_prob_fc, is_train,arch_model)
@@ -65,7 +65,7 @@ def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,ba
     best_valid_epoch = 0
 
     for epoch_i in range(epoch):
-        for batch_i in range(int(10000/batch_size)):
+        for batch_i in range(int(train_n/batch_size)):
             los, _ = sess.run([loss,optimizer])
             # print (los)
             if batch_i%100==0:
