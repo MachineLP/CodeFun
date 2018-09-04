@@ -35,7 +35,8 @@ def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,ba
     accuracy = model_accuracy(net, train_label, num_classes)
     #---------------------------------------valid---------------------------------------------#
     with tf.variable_scope("", reuse=tf.AUTO_REUSE) as scope:
-        valid_net, _ = build_net(valid_data, num_classes, dropout_prob=1.0, False, arch_model)
+        # valid_net, _ = build_net(valid_data, num_classes, dropout_prob, False, arch_model)
+        valid_net, _ = build_net(valid_data, num_classes, 1.0, False, arch_model)
     valid_loss = cost(valid_label, valid_net)
     valid_accuracy = model_accuracy(valid_net, valid_label, num_classes)
     #------------------------------------------------------------------------------------#
