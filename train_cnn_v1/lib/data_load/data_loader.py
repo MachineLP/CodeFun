@@ -196,7 +196,7 @@ def read_inputs(sample_dir, train_rate, batch_size, is_training=True, num_thread
 
   valid_data = valid_data.map(_parse_data, num_parallel_calls=num_threads).prefetch(num_prefetch)
 
-  # valid_data = _data_aug(valid_data, num_threads, num_prefetch)
+  valid_data = _data_aug(valid_data, num_threads, num_prefetch,  augment=[])  # 要做归一化啊
   valid_data = valid_data.batch(batch_size)
 
   epoch = None
