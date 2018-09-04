@@ -90,6 +90,8 @@ def _normalize_data(image, label):
     """Normalize image and label within range 0-1."""
     image = tf.cast(image, tf.float32)
     image = image / 255.0
+    image = image - 0.5
+    image = image * 2.0
 
     #label = tf.cast(label, tf.float32)
     #label = label / 255.0
@@ -252,7 +254,7 @@ def read_inputs_(sample_dir, train_rate, batch_size, is_training=True, num_threa
         num_threads=num_threads,
         capacity=min_queue_examples+3 * batch_size)
   valid_images, valid_label_batch = tf.train.batch(
-        [train_reshaped_image, train_label],
+        [valid_reshaped_image, valid_label],
         batch_size= batch_size,
         allow_smaller_final_batch= True if not is_training else False,
         num_threads=num_threads,
