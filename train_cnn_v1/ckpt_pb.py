@@ -8,6 +8,9 @@ import numpy as np
 import os
 import sys
 import config
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+
 MODEL_DIR = "model/"
 MODEL_NAME = "frozen_model.pb"
 if not tf.gfile.Exists(MODEL_DIR): #创建目录
