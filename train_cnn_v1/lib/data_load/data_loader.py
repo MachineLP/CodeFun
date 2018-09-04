@@ -212,7 +212,7 @@ def read_inputs(sample_dir, train_rate, batch_size, is_training=True, num_thread
   #with tf.Session() as sess:
   #    image, mask = sess.run([train_images, train_label_batch])
   #    print (mask)
-  return train_images, train_label_batch, valid_images, valid_label_batch
+  return train_images, train_label_batch, valid_images, valid_label_batch, train_n, valid_n
 
 
 def read_inputs_(sample_dir, train_rate, batch_size, is_training=True, num_threads=20):
