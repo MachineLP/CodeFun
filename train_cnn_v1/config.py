@@ -33,4 +33,4 @@ fine_tune = False
 # 是否训练所有层的参数
 train_all_layers = True
 # 迁移学习的网络模
-checkpoint_path = 'pretrain/inception_v4.ckpt'
+checkpoint_path = 'pretrain/inception_v4/inception_v4.ckpt'
