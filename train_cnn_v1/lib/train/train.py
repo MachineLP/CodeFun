@@ -35,7 +35,7 @@ def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,ba
     accuracy = model_accuracy(net, train_label, num_classes)
     #---------------------------------------valid---------------------------------------------#
     with tf.variable_scope("", reuse=tf.AUTO_REUSE) as scope:
-        valid_net, _ = build_net(valid_data, num_classes, dropout_prob, True, arch_model)
+        valid_net, _ = build_net(valid_data, num_classes, dropout_prob=1.0, False, arch_model)
     valid_loss = cost(valid_label, valid_net)
     valid_accuracy = model_accuracy(valid_net, valid_label, num_classes)
     #------------------------------------------------------------------------------------#
@@ -64,14 +64,14 @@ def train(train_data,train_label,valid_data,valid_label,train_dir,num_classes,ba
     best_valid_epoch = 0
 
     for epoch_i in range(epoch):
-        for batch_i in range(int(100/batch_size)):
+        for batch_i in range(int(10000/batch_size)):
             los, _ = sess.run([loss,optimizer])
             # print (los)
-            if batch_i%20==0:
+            if batch_i%100==0:
                 loss_, acc_ = sess.run([loss, accuracy])
                 print('Batch: {:>2}: Training loss: {:>3.5f}, Training accuracy: {:>3.5f}'.format(batch_i, loss_, acc_))
             
-            if batch_i%20==0:
+            if batch_i%500==0:
                 ls, acc = sess.run([valid_loss, valid_accuracy])
                 print('Batch: {:>2}: Validation loss: {:>3.5f}, Validation accuracy: {:>3.5f}'.format(batch_i, ls, acc))
             if batch_i%500==0:
