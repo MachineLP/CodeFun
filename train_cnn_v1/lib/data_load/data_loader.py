@@ -178,7 +178,7 @@ def read_inputs(sample_dir, train_rate, batch_size, is_training=True, num_thread
   train_data = train_data.batch(batch_size)
 
   epoch = None
-
+  # 无限重复数据集
   train_data = train_data.repeat(epoch)
   # train_iterator = tf.data.Iterator.from_structure(train_data.output_types, train_data.output_shapes)
   train_iterator = train_data.make_one_shot_iterator()
@@ -200,7 +200,7 @@ def read_inputs(sample_dir, train_rate, batch_size, is_training=True, num_thread
   valid_data = valid_data.batch(batch_size)
 
   epoch = None
-
+  # 无限重复数据集
   valid_data = valid_data.repeat(epoch)
   # valid_iterator = tf.data.Iterator.from_structure(valid_data.output_types, valid_data.output_shapes)
   valid_iterator = valid_data.make_one_shot_iterator()
