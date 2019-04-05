@@ -135,3 +135,19 @@ def arcface_loss(embedding, labels, out_num, w_init=None, s=64., m=0.5):
 
         output = tf.add(tf.multiply(s_cos_t, inv_mask), tf.multiply(cos_mt_temp, mask), name='arcface_loss_output')
     return output
+
+def smoothing_loss(one_hot_labels, logits, label_smoothing=0.1, weight=1.0, scope=None):
+    logits.get_shape().assert_is_compatible_with(one_hot_labels.get_shape())
+    with tf.name_scope(scope, 'CrossEntropyLoss', [logits, one_hot_labels]):
+        num_classes = one_hot_labels.get_shape()[-1].value
+        print ('>>>>>>>>>>>>>>', num_classes)
+        one_hot_labels = tf.cast(one_hot_labels, logits.dtype)
+        if label_smoothing > 0:
+            smooth_positives = 1.0 - label_smoothing
+            smooth_negatives = label_smoothing / num_classes
+            one_hot_labels = one_hot_labels * smooth_positives + smooth_negatives
+        cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits,labels=one_hot_labels, name='xentropy')
+        weight = tf.convert_to_tensor(weight, dtype=logits.dtype.base_dtype, name='loss_weight')
+        loss = tf.multiply(weight, tf.reduce_mean(cross_entropy), name='value')
+        # tf.add_to_collection(LOSSES_COLLECTION, loss)
+        return loss
