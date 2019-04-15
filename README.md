@@ -7,9 +7,9 @@
 
 具体的信息查看：train_cnn_v0； train_cnn_v1
 
-[train_cnn_v0](https://github.com/MachineLP/train_arch/tree/master/train_cnn_v0)： 实现基础cnn训练，数据读取方式慢。
+- [train_cnn_v0](https://github.com/MachineLP/train_arch/tree/master/train_cnn_v0)： 实现基础cnn训练，数据读取方式慢。
 
-[train_cnn_v1](https://github.com/MachineLP/train_arch/tree/master/train_cnn_v1)： 优化数据读取的方式，学习率加入衰减。
+- [train_cnn_v1](https://github.com/MachineLP/train_arch/tree/master/train_cnn_v1)： 优化数据读取的方式，学习率加入衰减。
 
 [train_cnn-rnn](https://github.com/MachineLP/train_cnn-rnn)：在train_cnn_v0基础上加入rnn。
 
