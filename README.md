@@ -11,19 +11,19 @@
 
 - [train_cnn_v1](https://github.com/MachineLP/train_arch/tree/master/train_cnn_v1)： 优化数据读取的方式，学习率加入衰减。
 
-[train_cnn-rnn](https://github.com/MachineLP/train_cnn-rnn)：在train_cnn_v0基础上加入rnn。
+- [train_cnn-rnn](https://github.com/MachineLP/train_cnn-rnn)：在train_cnn_v0基础上加入rnn。
 
-[train_cnn-rnn-attention_v0](https://github.com/MachineLP/train_cnn-rnn-attention)：在train_cnn_v0基础上加入rnn、attention。
+- [train_cnn-rnn-attention_v0](https://github.com/MachineLP/train_cnn-rnn-attention)：在train_cnn_v0基础上加入rnn、attention。
 
-[train_cnn_multiGPU_v0](https://github.com/MachineLP/train_arch/tree/master/train_cnn_multiGPU_v0)：使用多GPU训练(默认两块gpu)，以上其他框架使用多GPU，只需把train.py替换掉就可以了。
+- [train_cnn_multiGPU_v0](https://github.com/MachineLP/train_arch/tree/master/train_cnn_multiGPU_v0)：使用多GPU训练(默认两块gpu)，以上其他框架使用多GPU，只需把train.py替换掉就可以了。
 
-[train_cnn_multilabel](https://github.com/MachineLP/train_cnn_multilabel)： 多任务多标签训练及其总结。
+- [train_cnn_multilabel](https://github.com/MachineLP/train_cnn_multilabel)： 多任务多标签训练及其总结。
 
-[train_cnn_GANs](https://github.com/MachineLP/train_cnn_GANs)： GANs训练及其总结。
+- [train_cnn_GANs](https://github.com/MachineLP/train_cnn_GANs)： GANs训练及其总结。
 
-[TensorFlow基础教程](https://github.com/MachineLP/Tensorflow-)：理论及其代码实践。
+- [TensorFlow基础教程](https://github.com/MachineLP/Tensorflow-)：理论及其代码实践。
 
-[python实践教程](https://github.com/MachineLP/py_workSpace)：MachineLP的日常代码。
+- [python实践教程](https://github.com/MachineLP/py_workSpace)：MachineLP的日常代码。
 
 
 对dl感兴趣，还可以关注我的博客，这是我的博客目录：（地址： http://blog.csdn.net/u014365862/article/details/78422372 ）
