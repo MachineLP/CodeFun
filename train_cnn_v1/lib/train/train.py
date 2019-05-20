@@ -17,6 +17,7 @@ def train(train_data,train_label,valid_data,valid_label,train_n,valid_n,train_di
     # net, _ = build_net(X, num_classes, keep_prob_fc, is_train,arch_model)
     #---------------------------------------train---------------------------------------------#
     net, _ = build_net(train_data, num_classes, dropout_prob, True, arch_model)
+    # 可以添加moving average的用法：http://www.cnblogs.com/hrlnw/p/8067214.html
     variables_to_restore,variables_to_train = g_parameter(checkpoint_exclude_scopes)
     loss = cost(train_label, net)
     global_step = tf.Variable(0, trainable=False)  
