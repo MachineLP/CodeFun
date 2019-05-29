@@ -21,6 +21,7 @@ class load_image(object):
         self.train_labels = []
         self.note_label = []
     
+    # 遍历所有文件下的图片， 可以参考：https://github.com/MachineLP/py_workSpace/blob/master/data_load.py
     def _load_img_path(self, img_sub_dir, img_label):
         img_all_path = os.listdir(os.path.join(self.img_dir, img_sub_dir))
         img_num = len(img_all_path)
