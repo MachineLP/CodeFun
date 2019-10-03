@@ -1,10 +1,9 @@
 
-## tensorflow搭建的一个训练框架，包含模型有：vgg(vgg16,vgg19), resnet(resnet_v2_50,resnet_v2_101,resnet_v2_152), inception_v4, inception_resnet_v2等。
-## 此框架主要针对分类任务， 后面会陆续搭建多任务多标签、检测、以及rnn等框架，欢迎关注。
-使用说明：
+> tensorflow搭建的一个训练框架，包含模型有：vgg(vgg16,vgg19), resnet(resnet_v2_50,resnet_v2_101,resnet_v2_152), inception_v4, inception_resnet_v2等。
+> 此框架主要针对分类任务， 后面会陆续搭建多任务多标签、检测、以及rnn等框架，欢迎关注。
 搭建时使用的环境为：Python3.5, tensorflow1.4
 
-具体的信息查看：train_cnn_v0； train_cnn_v1
+具体:
 
 - [train_cnn_v0](https://github.com/MachineLP/train_arch/tree/master/train_cnn_v0)
 > 实现基础cnn训练，数据读取方式慢。
