@@ -1,3 +1,4 @@
+此repo是tensorflow版本的，pytorch版本：https://github.com/MachineLP/QDNet 
 
 > tensorflow搭建的一个训练框架，包含模型有：vgg(vgg16,vgg19), resnet(resnet_v2_50,resnet_v2_101,resnet_v2_152), inception_v4, inception_resnet_v2等。
 
