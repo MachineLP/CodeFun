@@ -21,7 +21,7 @@
 - [train_cnn_multiGPU_v0](https://github.com/MachineLP/train_arch/tree/master/train_cnn_multiGPU_v0)
 > 使用多GPU训练(默认两块gpu)，以上其他框架使用多GPU，只需把train.py替换掉就可以了。
 
-- [train_cnn_multilabel](https://github.com/MachineLP/train_cnn_multilabel)
+- [train_cnn_multilabel](https://github.com/MachineLP/train_arch/tree/master/train_cnn_multilabel)
 > 多任务多标签训练及其总结。
 
 - [train_cnn_GANs](https://github.com/MachineLP/train_cnn_GANs)
