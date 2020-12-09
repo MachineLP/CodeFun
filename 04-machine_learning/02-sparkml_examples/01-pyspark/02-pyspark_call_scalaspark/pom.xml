@@ -19,7 +19,7 @@
     <scala.binary.version>2.11</scala.binary.version> 
     <spark.version>2.4.3</spark.version>
     <mlflow.version>1.1.0</mlflow.version>
-    <akka.version>2.5.3</akka.version>
+    <akka.version>2.5.32</akka.version>
     <akkahttp.version>10.1.9</akkahttp.version>
   </properties>
   
