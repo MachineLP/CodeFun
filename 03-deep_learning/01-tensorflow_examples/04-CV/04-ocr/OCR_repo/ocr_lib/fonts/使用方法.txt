@@ -1,0 +1,61 @@
+﻿包括：times new roman，中山行书百年纪念版，calibri，Christopherhand，DejaVuSansMono，方正兰亭黑，James Fajardo，Monaco，微软雅黑，仿宋，黑体，楷体，宋体，yahei_mono，仿宋_GB2312，楷体_GB2312，迷你简行楷碑。
+
+文件名列表：
+ bb1550.ttf
+ calibri.ttf
+ calibrib.ttf
+ calibrii.ttf
+ calibriz.ttf
+ comesinhandy.ttf
+ DejaVuSansMono-Bold.ttf
+ DejaVuSansMono-BoldOblique.ttf
+ DejaVuSansMono-Oblique.ttf
+ DejaVuSansMono.ttf
+ DroidSansFallback.ttf
+ James_Fajardo.ttf
+ Monaco.ttf
+ msyh.ttf
+ msyhbd.ttf
+ simfang.ttf
+ simhei.ttf
+ simkai.ttf
+ simsun.ttc
+ times.ttf
+ timesbd.ttf
+ timesbi.ttf
+ timesi.ttf
+ yahei_mono.ttf
+ 仿宋_GB2312.ttf
+ 使用方法.txt
+ 楷体_GB2312.ttf
+ 迷你简行楷碑.TTF
+
+使用方法：
+====================================================================================================================
+====================================================================================================================
+
+windows：
+将所有的ttf文件拷贝到 系统所在分区的windows\fonts 目录下即可
+
+linux：
+
+Install and configure Unicode TrueType fonts in Linux
+
+Uncompress the downloaded font archive to a directory and add it to the font path, a list of directories containing fonts:
+1. Uncompress the archive # tar xvzf utf8.tar.gz or # tar xvjf arial.tar.bz2
+2. Create a directory for new fonts # mkdir /usr/share/fonts/truetype
+3. Move the uncompressed font files to the new font directory # mv *.ttf /usr/share/fonts/truetype
+4. Navigate to the font directory # cd /usr/share/fonts/truetype
+5. Create fonts.scale and fonts.dir # mkfontscale && mkfontdir # fc-cache
+6. Add the new font directory to the X11 font path # chkfontpath --add /usr/share/fonts/truetype
+7. Restart X font server # /etc/rc.d/init.d/xfs restart
+
+You can verify the successful addition of the new path by running chkfontpath command or by listing X font server's /etc/X11/XF86Config file.
+If you do not have root access, copy the *.ttf to ~/.fonts directory instead.
+
+
+Make X11 fonts available to Java
+
+Perform one of the following:
+1. Open /etc/profile and add a new environment variable JAVA_FONTS=/usr/share/fonts/truetype export JAVA_FONTS
+2. Open font.properties file under jre/lib directory, uncommnent and set to the appropriate font directory appendedfontpath=/usr/share/fonts/truetype

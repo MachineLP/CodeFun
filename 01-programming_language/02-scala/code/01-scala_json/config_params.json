@@ -1,0 +1,18 @@
+{
+    "experiment_name": "qdml_command_test",
+    "experiment_id": "16",
+    "problem_type": "classifier",
+    "estimator": "xgradient_boosting",
+    "fit_gird": false,
+    "eval_metric": "auc",
+    "model_monitor": {
+        "evaluator": [
+            "auc",
+            "precision_score",
+            "recall_score",
+            "ks_value"
+        ],
+        "threshold": 0.5,
+        "is_vaild": true
+    }
+}
