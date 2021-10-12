@@ -1,6 +1,6 @@
 tensorflow_gpu==1.6.0
 numpy==1.13.1
-opencv_python==3.2.0.7
+opencv_python==3.4.7.28
 matplotlib==2.0.2
 keras==2.1.5
 captcha==0.2.4
